@@ -1,0 +1,1003 @@
+{
+  "id": "49debcf3-8a91-4531-949f-05942d185f36",
+  "revision": 0,
+  "last_node_id": 64,
+  "last_link_id": 115,
+  "nodes": [
+    {
+      "id": 32,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        989.1237664326467,
+        -141.68405903072593
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            52
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null
+        }
+      ],
+      "title": "Sugar (Load AuraFlow Model)",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        "pony-v7-base.safetensors"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "VAELoader",
+      "pos": [
+        990.215325944687,
+        147.94400448679693
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            50
+          ]
+        }
+      ],
+      "title": "Everything Nice (Load VAE)",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        "diffusion_pytorch_model.fp16.safetensors"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "CLIPLoader",
+      "pos": [
+        989.3886988022399,
+        -0.28607956234887766
+      ],
+      "size": [
+        282.6408450825297,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            103,
+            109
+          ]
+        }
+      ],
+      "title": "Spice (Load T5 Tokenizer)",
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        "model.fp16.safetensors",
+        "qwen_image",
+        "default"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "T5TokenizerOptions",
+      "pos": [
+        1287.2753913403546,
+        -0.5457957510417797
+      ],
+      "size": [
+        210,
+        89.91843310157026
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "title": "Salt (Spread Tokens)",
+      "properties": {
+        "Node name for S&R": "T5TokenizerOptions",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        0,
+        1024
+      ]
+    },
+    {
+      "id": 61,
+      "type": "TextBox1",
+      "pos": [
+        1513.5651954323655,
+        188.56535333863073
+      ],
+      "size": [
+        318.50319322903147,
+        129.88400441348654
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "links": [
+            115
+          ]
+        }
+      ],
+      "title": "Intrusive Thoughts (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "TextBox1"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 60,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1522.5687352356413,
+        355.01301133504774
+      ],
+      "size": [
+        303.9361418638723,
+        112.7872283727745
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "title": "Friends to Make (Image Dimensions)",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 23,
+      "type": "PreviewImage",
+      "pos": [
+        2614.9485133928747,
+        4.243771538479039
+      ],
+      "size": [
+        484.6714085567021,
+        513.7176748663288
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 51
+        }
+      ],
+      "outputs": [],
+      "title": "Spell Results (Image Output)",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        2399.4850728100105,
+        12.626273474758692
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 62
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "title": "Casting (VAE Decode)",
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1511.0980482017076,
+        -1.8048693831976559
+      ],
+      "size": [
+        319.43688063550655,
+        153.81006219804846
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 114
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            108
+          ]
+        }
+      ],
+      "title": "Kind Words (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        "score_9, style_cluster_1500.\nPrincess Twilight Sparkle, Princess Celestia, Princess Luna, and Princess Cadance, all smiling happily in a group hug."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 64,
+      "type": "MarkdownNote",
+      "pos": [
+        970.1196723824532,
+        -325.1312408667234
+      ],
+      "size": [
+        307.3435094664778,
+        140.6546421958799
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "The Cutie Map (Downloads)",
+      "properties": {},
+      "widgets_values": [
+        "Checkpoint:\n<https://huggingface.co/purplesmartai/pony-v7-base/blob/main/safetensor/pony-v7-base.safetensors>\n\nCLIP:\n<https://huggingface.co/purplesmartai/pony-v7-base/blob/main/text_encoder/model.fp16.safetensors>\n\nVAE:\n<https://huggingface.co/purplesmartai/pony-v7-base/blob/main/vae/diffusion_pytorch_model.fp16.safetensors>"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 38,
+      "type": "ClownsharKSampler_Beta",
+      "pos": [
+        2104.58325877871,
+        15.381343916561699
+      ],
+      "size": [
+        284.9580790584564,
+        418.93487994115355
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": 52
+        },
+        {
+          "name": "positive",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": 110
+        },
+        {
+          "name": "negative",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": 111
+        },
+        {
+          "name": "latent_image",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 112
+        },
+        {
+          "name": "sigmas",
+          "shape": 7,
+          "type": "SIGMAS",
+          "link": null
+        },
+        {
+          "name": "guides",
+          "shape": 7,
+          "type": "GUIDES",
+          "link": null
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OPTIONS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": []
+        },
+        {
+          "name": "denoised",
+          "type": "LATENT",
+          "links": [
+            62
+          ]
+        },
+        {
+          "name": "options",
+          "type": "OPTIONS",
+          "links": null
+        }
+      ],
+      "title": "Alicorn Magic (ClownsharKSampler)",
+      "properties": {
+        "Node name for S&R": "ClownsharKSampler_Beta"
+      },
+      "widgets_values": [
+        0.5,
+        "multistep/res_2m",
+        "simple",
+        20,
+        -1,
+        1,
+        3.5,
+        415925635637791,
+        "fixed",
+        "standard",
+        true
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        1484.372637450407,
+        -176.65665387969912
+      ],
+      "size": [
+        372.379367452764,
+        129.10912988989102
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Star Clusters (style_cluster_x Reference)",
+      "properties": {},
+      "widgets_values": [
+        "Some style_cluster_x values and what they tend to look like:\n\n412  : Show Accurate. MLP:FiM style!\n1002 : Pixel Art. Not perfect, but it fooled me at first.\n1047 : Robots. Likes to turn characters into androids.\n1052 : Anime-ish. Thin outlines and a bit desaturated.\n1336 : Digital Art. Generally nice looking.\n1500 : Soft Render. That's cutesy baybeee!"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 59,
+      "type": "c086871f-1c9b-465d-864a-27c0a11a08ea",
+      "pos": [
+        1842.2304679837798,
+        15.601098203255138
+      ],
+      "size": [
+        251.61590774208844,
+        108
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 108
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 109
+        },
+        {
+          "label": "Negative Text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 115
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Positive",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            110
+          ]
+        },
+        {
+          "label": "Negative",
+          "name": "conditioning_passthrough",
+          "type": "CONDITIONING",
+          "links": [
+            111
+          ]
+        }
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "-1",
+            "text"
+          ]
+        ]
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    }
+  ],
+  "links": [
+    [
+      50,
+      25,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      51,
+      8,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      32,
+      0,
+      38,
+      0,
+      "MODEL"
+    ],
+    [
+      62,
+      38,
+      1,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      103,
+      53,
+      0,
+      58,
+      0,
+      "CLIP"
+    ],
+    [
+      108,
+      6,
+      0,
+      59,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      109,
+      53,
+      0,
+      59,
+      1,
+      "CLIP"
+    ],
+    [
+      110,
+      59,
+      0,
+      38,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      111,
+      59,
+      1,
+      38,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      112,
+      60,
+      0,
+      38,
+      3,
+      "LATENT"
+    ],
+    [
+      114,
+      58,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      115,
+      61,
+      0,
+      59,
+      2,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "c086871f-1c9b-465d-864a-27c0a11a08ea",
+        "version": 1,
+        "state": {
+          "lastGroupId": 0,
+          "lastNodeId": 58,
+          "lastLinkId": 116,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Unicorn Magic (Balancer)",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            1104.9412367312764,
+            354.7969095250908,
+            120,
+            100
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            2085.4665264487057,
+            354.7969095250908,
+            120,
+            80
+          ]
+        },
+        "inputs": [
+          {
+            "id": "e806b309-a531-400d-9d1b-c2b08b7245a2",
+            "name": "conditioning",
+            "type": "CONDITIONING",
+            "linkIds": [
+              104,
+              108
+            ],
+            "localized_name": "conditioning",
+            "pos": [
+              1204.9412367312764,
+              374.7969095250908
+            ]
+          },
+          {
+            "id": "ef0afd62-e820-4732-87e7-63c1ce12598b",
+            "name": "clip",
+            "type": "CLIP",
+            "linkIds": [
+              102
+            ],
+            "localized_name": "clip",
+            "pos": [
+              1204.9412367312764,
+              394.7969095250908
+            ]
+          },
+          {
+            "id": "1299291d-ccd0-44d2-a6a3-9b95d83c8d5a",
+            "name": "text",
+            "type": "STRING",
+            "linkIds": [
+              116
+            ],
+            "label": "Negative Text",
+            "pos": [
+              1204.9412367312764,
+              414.7969095250908
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "fe8de58e-ccb5-44bf-83cc-4365b7de64fb",
+            "name": "CONDITIONING",
+            "type": "CONDITIONING",
+            "linkIds": [
+              109
+            ],
+            "localized_name": "CONDITIONING",
+            "label": "Positive",
+            "pos": [
+              2105.4665264487057,
+              374.7969095250908
+            ]
+          },
+          {
+            "id": "991ad3e7-44b5-429a-8a82-50f4d84e0775",
+            "name": "conditioning_passthrough",
+            "type": "CONDITIONING",
+            "linkIds": [
+              110
+            ],
+            "localized_name": "conditioning_passthrough",
+            "label": "Negative",
+            "pos": [
+              2105.4665264487057,
+              394.7969095250908
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 57,
+            "type": "T5Balancer",
+            "pos": [
+              1247.9520200062361,
+              342.23131936526033
+            ],
+            "size": [
+              245.6666717529297,
+              46
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "conditioning",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 108
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "conditioning_passthrough",
+                "name": "conditioning_passthrough",
+                "type": "CONDITIONING",
+                "links": [
+                  109
+                ]
+              },
+              {
+                "localized_name": "token_length",
+                "name": "token_length",
+                "type": "INT",
+                "links": [
+                  115
+                ]
+              }
+            ],
+            "title": "Taste Test (T5 Token Length)",
+            "properties": {
+              "Node name for S&R": "T5Balancer"
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 55,
+            "type": "T5TokenizerOptions",
+            "pos": [
+              1521.680073342743,
+              434.9087628091772
+            ],
+            "size": [
+              210,
+              82
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 102
+              },
+              {
+                "localized_name": "min_padding",
+                "name": "min_padding",
+                "type": "INT",
+                "widget": {
+                  "name": "min_padding"
+                },
+                "link": 115
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  101
+                ]
+              }
+            ],
+            "title": "Pepper (Pad Tokens)",
+            "properties": {
+              "Node name for S&R": "T5TokenizerOptions",
+              "cnr_id": "comfy-core",
+              "ver": "0.3.67"
+            },
+            "widgets_values": [
+              0,
+              0
+            ]
+          },
+          {
+            "id": 56,
+            "type": "CLIPTextEncode",
+            "pos": [
+              1746.9521302672515,
+              433.92865579998977
+            ],
+            "size": [
+              269.3833374023437,
+              88
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 101
+              },
+              {
+                "localized_name": "text",
+                "name": "text",
+                "type": "STRING",
+                "widget": {
+                  "name": "text"
+                },
+                "link": 116
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CONDITIONING",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [
+                  110
+                ]
+              }
+            ],
+            "title": "Nightmares (Negative Prompt)",
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              ""
+            ],
+            "color": "#322",
+            "bgcolor": "#533"
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 101,
+            "origin_id": 55,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 102,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 108,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 57,
+            "target_slot": 0,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 109,
+            "origin_id": 57,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 110,
+            "origin_id": 56,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 1,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 115,
+            "origin_id": 57,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 116,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 56,
+            "target_slot": 1,
+            "type": "STRING"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8800000000000001,
+      "offset": [
+        -928.1486832810883,
+        402.3706302253828
+      ]
+    },
+    "frontendVersion": "1.28.8"
+  },
+  "version": 0.4
+}
