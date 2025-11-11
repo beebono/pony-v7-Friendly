@@ -203,40 +203,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 60,
-      "type": "EmptyLatentImage",
-      "pos": [
-        1522.5687352356413,
-        355.01301133504774
-      ],
-      "size": [
-        303.9361418638723,
-        112.7872283727745
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            112
-          ]
-        }
-      ],
-      "title": "Friends to Make (Image Dimensions)",
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
       "id": 23,
       "type": "PreviewImage",
       "pos": [
@@ -367,7 +333,7 @@
         140.6546421958799
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -378,6 +344,97 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        1484.372637450407,
+        -176.65665387969912
+      ],
+      "size": [
+        372.379367452764,
+        129.10912988989102
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Star Clusters (style_cluster_x Reference)",
+      "properties": {},
+      "widgets_values": [
+        "Some style_cluster_x values and what they tend to look like:\n\n412  : Show Accurate. MLP:FiM style!\n1002 : Pixel Art. Not perfect, but it fooled me at first.\n1047 : Robots. Likes to turn characters into androids.\n1052 : Anime-ish. Thin outlines and a bit desaturated.\n1336 : Digital Art. Generally nice looking.\n1500 : Soft Render. That's cutesy baybeee!"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 59,
+      "type": "c086871f-1c9b-465d-864a-27c0a11a08ea",
+      "pos": [
+        1842.2304679837798,
+        15.601098203255138
+      ],
+      "size": [
+        251.61590774208844,
+        108
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 108
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 109
+        },
+        {
+          "label": "Negative Text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 115
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Positive",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            110
+          ]
+        },
+        {
+          "label": "Negative",
+          "name": "conditioning_passthrough",
+          "type": "CONDITIONING",
+          "links": [
+            111
+          ]
+        }
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "-1",
+            "text"
+          ]
+        ]
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
     },
     {
       "id": 38,
@@ -468,7 +525,7 @@
         -1,
         1,
         3.5,
-        415925635637791,
+        1107509620748163,
         "fixed",
         "standard",
         true
@@ -477,95 +534,38 @@
       "bgcolor": "#335"
     },
     {
-      "id": 62,
-      "type": "Note",
+      "id": 60,
+      "type": "EmptyLatentImage",
       "pos": [
-        1484.372637450407,
-        -176.65665387969912
+        1522.5687352356413,
+        355.01301133504774
       ],
       "size": [
-        372.379367452764,
-        129.10912988989102
+        303.9361418638723,
+        112.7872283727745
       ],
       "flags": {},
       "order": 6,
       "mode": 0,
       "inputs": [],
-      "outputs": [],
-      "title": "Star Clusters (style_cluster_x Reference)",
-      "properties": {},
-      "widgets_values": [
-        "Some style_cluster_x values and what they tend to look like:\n\n412  : Show Accurate. MLP:FiM style!\n1002 : Pixel Art. Not perfect, but it fooled me at first.\n1047 : Robots. Likes to turn characters into androids.\n1052 : Anime-ish. Thin outlines and a bit desaturated.\n1336 : Digital Art. Generally nice looking.\n1500 : Soft Render. That's cutesy baybeee!"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 59,
-      "type": "c086871f-1c9b-465d-864a-27c0a11a08ea",
-      "pos": [
-        1842.2304679837798,
-        15.601098203255138
-      ],
-      "size": [
-        251.61590774208844,
-        108
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 108
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 109
-        },
-        {
-          "label": "Negative Text",
-          "name": "text",
-          "type": "STRING",
-          "widget": {
-            "name": "text"
-          },
-          "link": 115
-        }
-      ],
       "outputs": [
         {
-          "label": "Positive",
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            110
-          ]
-        },
-        {
-          "label": "Negative",
-          "name": "conditioning_passthrough",
-          "type": "CONDITIONING",
-          "links": [
-            111
+            112
           ]
         }
       ],
+      "title": "Friends to Make (Image Dimensions)",
       "properties": {
-        "proxyWidgets": [
-          [
-            "-1",
-            "text"
-          ]
-        ]
+        "Node name for S&R": "EmptyLatentImage"
       },
       "widgets_values": [
-        ""
-      ],
-      "color": "#323",
-      "bgcolor": "#535"
+        1024,
+        1024,
+        1
+      ]
     }
   ],
   "links": [
@@ -991,10 +991,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8800000000000001,
+      "scale": 0.8,
       "offset": [
-        -928.1486832810883,
-        402.3706302253828
+        -937.5701708843966,
+        411.66815088653885
       ]
     },
     "frontendVersion": "1.28.8"
