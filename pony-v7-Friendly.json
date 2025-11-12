@@ -126,49 +126,6 @@
       ]
     },
     {
-      "id": 58,
-      "type": "T5TokenizerOptions",
-      "pos": [
-        1287.2753913403546,
-        -0.5457957510417797
-      ],
-      "size": [
-        210,
-        89.91843310157026
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 103
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            114
-          ]
-        }
-      ],
-      "title": "Salt (Spread Tokens)",
-      "properties": {
-        "Node name for S&R": "T5TokenizerOptions",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67"
-      },
-      "widgets_values": [
-        0,
-        1024
-      ]
-    },
-    {
       "id": 61,
       "type": "TextBox1",
       "pos": [
@@ -277,49 +234,6 @@
         "ver": "0.3.67"
       },
       "widgets_values": []
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1511.0980482017076,
-        -1.8048693831976559
-      ],
-      "size": [
-        319.43688063550655,
-        153.81006219804846
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 114
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            108
-          ]
-        }
-      ],
-      "title": "Kind Words (Positive Prompt)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67"
-      },
-      "widgets_values": [
-        "score_9, style_cluster_1500.\nPrincess Twilight Sparkle, Princess Celestia, Princess Luna, and Princess Cadance, all smiling happily in a group hug."
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 64,
@@ -437,6 +351,126 @@
       "bgcolor": "#535"
     },
     {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1511.0980482017076,
+        -1.8048693831976559
+      ],
+      "size": [
+        319.43688063550655,
+        153.81006219804846
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 114
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            108
+          ]
+        }
+      ],
+      "title": "Kind Words (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        "score_9, style_cluster_1500.\nPrincess Twilight Sparkle, Princess Celestia, Princess Luna, and Princess Cadance, all smiling happily in a group hug."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 58,
+      "type": "T5TokenizerOptions",
+      "pos": [
+        1287.2753913403546,
+        -0.5457957510417797
+      ],
+      "size": [
+        210,
+        89.91843310157026
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "title": "Salt (Spread Tokens)",
+      "properties": {
+        "Node name for S&R": "T5TokenizerOptions",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": [
+        0,
+        768
+      ]
+    },
+    {
+      "id": 60,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1522.5687352356413,
+        355.01301133504774
+      ],
+      "size": [
+        303.9361418638723,
+        112.7872283727745
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "title": "Friends to Make (Image Dimensions)",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
       "id": 38,
       "type": "ClownsharKSampler_Beta",
       "pos": [
@@ -532,40 +566,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 60,
-      "type": "EmptyLatentImage",
-      "pos": [
-        1522.5687352356413,
-        355.01301133504774
-      ],
-      "size": [
-        303.9361418638723,
-        112.7872283727745
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            112
-          ]
-        }
-      ],
-      "title": "Friends to Make (Image Dimensions)",
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
     }
   ],
   "links": [
@@ -991,10 +991,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8,
+      "scale": 0.7272727272727278,
       "offset": [
-        -937.5701708843966,
-        411.66815088653885
+        -528.9799146444218,
+        481.16779752644925
       ]
     },
     "frontendVersion": "1.28.8"
