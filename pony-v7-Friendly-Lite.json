@@ -1,8 +1,8 @@
 {
-  "id": "49debcf3-8a91-4531-949f-05942d185f36",
+  "id": "f37e2081-284c-4f13-b334-9c34ffc70791",
   "revision": 0,
-  "last_node_id": 65,
-  "last_link_id": 119,
+  "last_node_id": 84,
+  "last_link_id": 145,
   "nodes": [
     {
       "id": 25,
@@ -65,64 +65,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 62,
-      "type": "Note",
-      "pos": [
-        1529.2073481942066,
-        -54.13599272267457
-      ],
-      "size": [
-        372.379367452764,
-        129.10912988989102
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Star Clusters (style_cluster_x Reference)",
-      "properties": {},
-      "widgets_values": [
-        "Some style_cluster_x values and what they tend to look like:\n\n412  : Show Accurate. MLP:FiM style!\n1002 : Pixel Art. Not perfect, but it fooled me at first.\n1047 : Robots. Likes to turn characters into androids.\n1052 : Anime-ish. Thin outlines and a bit desaturated.\n1336 : Digital Art. Generally nice looking.\n1500 : Soft Render. That's cutesy baybeee!"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 60,
-      "type": "EmptyLatentImage",
-      "pos": [
-        1522.5687352356413,
-        355.01301133504774
-      ],
-      "size": [
-        380.38242285560773,
-        113.82028622401424
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            112
-          ]
-        }
-      ],
-      "title": "Friends to Make (Image Dimensions)",
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
       "id": 53,
       "type": "CLIPLoader",
       "pos": [
@@ -136,7 +78,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -161,6 +103,76 @@
       ]
     },
     {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        1529.2073481942066,
+        -54.13599272267457
+      ],
+      "size": [
+        372.379367452764,
+        129.10912988989102
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Star Clusters (style_cluster_x Reference)",
+      "properties": {},
+      "widgets_values": [
+        "Some style_cluster_x values and what they tend to look like:\n\n412  : Show Accurate. MLP:FiM style!\n1002 : Pixel Art. Not perfect, but it fooled me at first.\n1047 : Robots. Likes to turn characters into androids.\n1052 : Anime-ish. Thin outlines and a bit desaturated.\n1336 : Digital Art. Generally nice looking.\n1500 : Soft Render. That's cutesy baybeee!"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1954.267812439072,
+        257.54736989763063
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 141
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "title": "Casting (VAE Decode)",
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": []
+    },
+    {
       "id": 32,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -174,7 +186,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -182,7 +194,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            52
+            142
           ]
         },
         {
@@ -205,6 +217,36 @@
       "widgets_values": [
         "pony-v7-base.safetensors"
       ]
+    },
+    {
+      "id": 23,
+      "type": "PreviewImage",
+      "pos": [
+        2217.0112916432427,
+        -54.86219489451409
+      ],
+      "size": [
+        484.6714085567021,
+        513.7176748663288
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 51
+        }
+      ],
+      "outputs": [],
+      "title": "Spell Results (Image Output)",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.67"
+      },
+      "widgets_values": []
     },
     {
       "id": 65,
@@ -232,14 +274,14 @@
           "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            118
+            144
           ]
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
           "links": [
-            119
+            143
           ]
         }
       ],
@@ -249,22 +291,56 @@
       },
       "widgets_values": [
         768,
-        "score_9, style_cluster_1500.\nPrincess Twilight Sparkle, Princess Celestia, Princess Luna, and Princess Cadance, all smiling happily in a group hug.",
+        "score_9, style_cluster_1500.\nTwilight Sparkle, Princess Celestia, Princess Luna, and Princess Cadance, all smiling happily in a group hug.",
         ""
       ],
       "color": "#323",
       "bgcolor": "#535"
     },
     {
-      "id": 38,
-      "type": "ClownsharKSampler_Beta",
+      "id": 60,
+      "type": "EmptyLatentImage",
       "pos": [
-        1914.0967824451288,
-        -54.6975441375328
+        1522.5687352356413,
+        355.01301133504774
       ],
       "size": [
-        301.487004678291,
-        418.52165680065775
+        380.38242285560773,
+        113.82028622401424
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            145
+          ]
+        }
+      ],
+      "title": "Friends to Make (Image Dimensions)",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 84,
+      "type": "KSampler",
+      "pos": [
+        1925.0869536700766,
+        -51.10217258332144
+      ],
+      "size": [
+        270,
+        262
       ],
       "flags": {},
       "order": 7,
@@ -272,161 +348,49 @@
       "inputs": [
         {
           "name": "model",
-          "shape": 7,
           "type": "MODEL",
-          "link": 52
+          "link": 142
         },
         {
           "name": "positive",
-          "shape": 7,
           "type": "CONDITIONING",
-          "link": 118
+          "link": 144
         },
         {
           "name": "negative",
-          "shape": 7,
           "type": "CONDITIONING",
-          "link": 119
+          "link": 143
         },
         {
           "name": "latent_image",
-          "shape": 7,
           "type": "LATENT",
-          "link": 112
-        },
-        {
-          "name": "sigmas",
-          "shape": 7,
-          "type": "SIGMAS",
-          "link": null
-        },
-        {
-          "name": "guides",
-          "shape": 7,
-          "type": "GUIDES",
-          "link": null
-        },
-        {
-          "name": "options",
-          "shape": 7,
-          "type": "OPTIONS",
-          "link": null
+          "link": 145
         }
       ],
       "outputs": [
         {
-          "name": "output",
-          "type": "LATENT",
-          "links": []
-        },
-        {
-          "name": "denoised",
+          "name": "LATENT",
           "type": "LATENT",
           "links": [
-            62
+            141
           ]
-        },
-        {
-          "name": "options",
-          "type": "OPTIONS",
-          "links": null
         }
       ],
-      "title": "Alicorn Magic (ClownsharKSampler)",
+      "title": "Alicorn Magic (KSampler)",
       "properties": {
-        "Node name for S&R": "ClownsharKSampler_Beta"
+        "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        0.5,
-        "multistep/res_2m",
-        "simple",
-        20,
-        -1,
-        1,
-        3.5,
-        1107509620748163,
-        "fixed",
-        "standard",
-        true
+        64064585034015,
+        "randomize",
+        10,
+        6,
+        "dpmpp_2s_ancestral",
+        "beta",
+        1
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        1962.4885623878515,
-        408.8066759559593
-      ],
-      "size": [
-        210,
-        46
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 62
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 50
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            51
-          ]
-        }
-      ],
-      "title": "Casting (VAE Decode)",
-      "properties": {
-        "Node name for S&R": "VAEDecode",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 23,
-      "type": "PreviewImage",
-      "pos": [
-        2226.018531585869,
-        -51.74338470395333
-      ],
-      "size": [
-        484.6714085567021,
-        513.7176748663288
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 51
-        }
-      ],
-      "outputs": [],
-      "title": "Spell Results (Image Output)",
-      "properties": {
-        "Node name for S&R": "PreviewImage",
-        "cnr_id": "comfy-core",
-        "ver": "0.3.67"
-      },
-      "widgets_values": []
     }
   ],
   "links": [
@@ -447,30 +411,6 @@
       "IMAGE"
     ],
     [
-      52,
-      32,
-      0,
-      38,
-      0,
-      "MODEL"
-    ],
-    [
-      62,
-      38,
-      1,
-      8,
-      0,
-      "LATENT"
-    ],
-    [
-      112,
-      60,
-      0,
-      38,
-      3,
-      "LATENT"
-    ],
-    [
       117,
       53,
       0,
@@ -479,30 +419,54 @@
       "CLIP"
     ],
     [
-      118,
+      141,
+      84,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      142,
+      32,
+      0,
+      84,
+      0,
+      "MODEL"
+    ],
+    [
+      143,
+      65,
+      1,
+      84,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      144,
       65,
       0,
-      38,
+      84,
       1,
       "CONDITIONING"
     ],
     [
-      119,
-      65,
-      1,
-      38,
-      2,
-      "CONDITIONING"
+      145,
+      60,
+      0,
+      84,
+      3,
+      "LATENT"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8800000000000021,
+      "scale": 0.9680000000000027,
       "offset": [
-        -1090.1858912737032,
-        149.9596978110717
+        -1169.9460138435688,
+        94.30543738763787
       ]
     },
     "frontendVersion": "1.28.8"
