@@ -19,8 +19,8 @@
 
 ## The Secret Ingredients
 
-1. Your prompt is expanded to fill most of the context window in `pony-v7-base` using a **T5TokenizerOptions** node with `min_length` set to **1024**.
-2. A simple custom node called **T5 Token Length Balancer** reads how many tokens were produced by the **Positive Prompt** encoding (typically 1024) and pads the **Negative Prompt** accordingly, keeping both in harmony.
+1. Your prompt is expanded to fill most of the context window in `pony-v7-base` using a **T5TokenizerOptions** node with `min_length` set to *768**.
+2. A simple custom node called **T5 Token Length Balancer** reads how many tokens were produced by the **Positive Prompt** encoding (typically 768) and pads the **Negative Prompt** accordingly, keeping both in harmony.
 3. The **RES4LYF ClownsharKSampler** sprinkles in its unique diffusion magic for extra efficiency. (Don’t ask how, it’s wizardry to me. Maybe real unicorns are involved?)
 4. **Love** and **Friendship**, duh.
 
