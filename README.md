@@ -15,7 +15,7 @@
 - **Power to the prompter**  
   Negative prompts usually aren’t needed, but you can still try one out if you want to refine certain results.
 
-- **Options abound**
+- **Options abound**  
   Don't want to install more than you absolutely have to? Try the Lite workflow! It'll probably take a bit longer, but it's not THAT bad...
 
 ---
